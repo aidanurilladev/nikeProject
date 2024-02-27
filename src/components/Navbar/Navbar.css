@@ -1,0 +1,72 @@
+h1 {
+  color: red;
+}
+
+#navbar_top {
+  padding: 10px 0;
+  background: #fff;
+}
+.navbar_top {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+}
+.navbar_top a {
+  font-size: 13px;
+  color: #000;
+  font-weight: bold;
+}
+
+/*! TEST */
+#navbar_test {
+  padding: 5px 0;
+  background: #fff;
+}
+.navbar_test {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar_test_nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navbar_test_icons {
+  width: 1150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar_test_search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ! SORT */
+#navbar_sort {
+  padding: 23px 0;
+}
+.navbar_sort {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar_sort_box {
+  width: 500px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.input {
+  padding: 0 25px;
+  width: 140px;
+  height: 24px;
+  border: 1px solid gray;
+  border-radius: 100px;
+}
