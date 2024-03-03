@@ -4,8 +4,11 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useProduct } from "../../context/ProductContext";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../context/AuthContext";
+import { ADMIN } from "../../helpers/const";
 
 const ProductCard = ({ el }) => {
+  const { user } = useAuthContext();
   const { deleteProduct, getOneProduct } = useProduct();
   const nav = useNavigate();
   return (
@@ -22,18 +25,30 @@ const ProductCard = ({ el }) => {
             alignItems: "center",
           }}
         >
-          <IconButton onClick={() => deleteProduct(el.id)}>
-            <DeleteIcon />
-          </IconButton>
-          <IconButton
-            onClick={() => {
-              getOneProduct(el.id);
-              nav(`/edit/${el.id}`);
-            }}
-          >
-            <EditNoteIcon />
-          </IconButton>
-          <Button
+          {ADMIN.map((el) =>
+            user && el.email === user.email ? (
+              <>
+                <IconButton onClick={() => deleteProduct(el.id)}>
+                  <DeleteIcon />
+                </IconButton>
+                <IconButton
+                  onClick={() => {
+                    getOneProduct(el.id);
+                    nav(`/edit/${el.id}`);
+                  }}
+                >
+                  <EditNoteIcon />
+                </IconButton>
+              </>
+            ) : (
+              ""
+            )
+          )}
+          <Button 
+          variant="contained"
+          sx={{
+            borderRadius:"20px"
+          }}
             onClick={() => {
               getOneProduct(el.id);
               nav(`/details/${el.id}`);

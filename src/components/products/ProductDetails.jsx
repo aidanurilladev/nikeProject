@@ -4,25 +4,19 @@ import { Box, Button, Typography } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import NavbarTop from "../Navbar/NavbarTop";
 import NavbarTest from "../Navbar/NavbarTest";
+import { useCardContext } from "../../context/CardContext";
 
 const ProductDetails = () => {
-  const { oneProduct, getOneProduct, addBasket, basket } = useProduct();
-  const [click, setClick] = useState(true);
+  const { oneProduct, getOneProduct, addBasket, basket, checkBasketProduct } =
+    useProduct();
+
+  const { addProductToCard, checkProductInCard } = useCardContext();
   const { id } = useParams();
   useEffect(() => {
     getOneProduct(id);
   }, []);
 
   const navigate = useNavigate();
-
-  function handleBasketChange() {
-    basket.forEach((el) => {
-      if (el.id === oneProduct.id) {
-        setClick(false);
-      }
-    });
-    addBasket(oneProduct);
-  }
 
   return (
     <>
@@ -38,7 +32,7 @@ const ProductDetails = () => {
       >
         <Box>
           <img
-            style={{ width: "480px", height: "400px" }}
+            style={{ width: "450px", height: "400px" }}
             src={oneProduct.image}
             alt=""
           />
@@ -57,21 +51,16 @@ const ProductDetails = () => {
                 alignItems: "center",
               }}
             >
-              <Button onClick={() => navigate("/")}>
-                Continue to shopping
-              </Button>
-              {click ? (
+              
+              {checkProductInCard(oneProduct.id) ? (
                 <>
-                  <Button
-                    onClick={() => {
-                      handleBasketChange();
-                    }}
-                  >
-                    add to basket
-                  </Button>
+                  <Button onClick={()=>navigate("/")}>Continue shopping</Button>
+                  <Button disabled>add to basket</Button>
                 </>
               ) : (
-                <Button disabled>add to basket</Button>
+                <Button onClick={() => addProductToCard(oneProduct)}>
+                  add to basket
+                </Button>
               )}
             </Box>
           </Box>

@@ -73,95 +73,11 @@
   ],
   "basket": [
     {
-      "id": "5c37",
-      "name": "Sustainable",
-      "price": "105",
-      "type": "women",
-      "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8e2280a5-61dd-4a44-a07c-a3045f811cc3/superrep-go-3-flyknit-next-nature-womens-workout-shoes-hSZBdX.png"
-    },
-    {
-      "id": "4679",
-      "name": "Nike Air Force",
-      "price": "140",
-      "type": "men",
-      "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/80aedd22-9297-4253-ae6d-f935edbbf654/air-max-1-mens-shoes-2C5sX2.png"
-    },
-    {
-      "id": "4679",
-      "name": "Nike Air Force",
-      "price": "140",
-      "type": "men",
-      "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/80aedd22-9297-4253-ae6d-f935edbbf654/air-max-1-mens-shoes-2C5sX2.png"
-    },
-    {
-      "id": "4679",
-      "name": "Nike Air Force",
-      "price": "140",
-      "type": "men",
-      "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/80aedd22-9297-4253-ae6d-f935edbbf654/air-max-1-mens-shoes-2C5sX2.png"
-    },
-    {
       "id": "dd52",
       "name": "Lunar",
       "price": "100",
       "type": "kids",
       "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/415671b5-437a-4359-8692-d0577cb27987/dunk-low-lunar-new-year-big-kids-shoes-FGGD70.png"
-    },
-    {
-      "id": "5c37",
-      "name": "Sustainable",
-      "price": "105",
-      "type": "women",
-      "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8e2280a5-61dd-4a44-a07c-a3045f811cc3/superrep-go-3-flyknit-next-nature-womens-workout-shoes-hSZBdX.png"
-    },
-    {
-      "id": "5c37",
-      "name": "Sustainable",
-      "price": "105",
-      "type": "women",
-      "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8e2280a5-61dd-4a44-a07c-a3045f811cc3/superrep-go-3-flyknit-next-nature-womens-workout-shoes-hSZBdX.png"
-    },
-    {
-      "id": "dd52",
-      "name": "Lunar",
-      "price": "100",
-      "type": "kids",
-      "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/415671b5-437a-4359-8692-d0577cb27987/dunk-low-lunar-new-year-big-kids-shoes-FGGD70.png"
-    },
-    {
-      "id": "4679",
-      "name": "Nike Air Force",
-      "price": "140",
-      "type": "men",
-      "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/80aedd22-9297-4253-ae6d-f935edbbf654/air-max-1-mens-shoes-2C5sX2.png"
-    },
-    {
-      "id": "4679",
-      "name": "Nike Air Force",
-      "price": "140",
-      "type": "men",
-      "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/80aedd22-9297-4253-ae6d-f935edbbf654/air-max-1-mens-shoes-2C5sX2.png"
-    },
-    {
-      "id": "4679",
-      "name": "Nike Air Force",
-      "price": "140",
-      "type": "men",
-      "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/80aedd22-9297-4253-ae6d-f935edbbf654/air-max-1-mens-shoes-2C5sX2.png"
-    },
-    {
-      "id": "4679",
-      "name": "Nike Air Force",
-      "price": "140",
-      "type": "men",
-      "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/80aedd22-9297-4253-ae6d-f935edbbf654/air-max-1-mens-shoes-2C5sX2.png"
-    },
-    {
-      "id": "4679",
-      "name": "Nike Air Force",
-      "price": "140",
-      "type": "men",
-      "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/80aedd22-9297-4253-ae6d-f935edbbf654/air-max-1-mens-shoes-2C5sX2.png"
     }
   ]
 }

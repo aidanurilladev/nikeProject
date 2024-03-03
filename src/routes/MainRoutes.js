@@ -7,23 +7,15 @@ import Register from "../components/authentication/Register";
 import Login from "../components/authentication/Login";
 import ProductDetails from "../components/products/ProductDetails";
 import BasketList from "../components/products/BasketList";
+import BasketCart from "../components/products/BasketCart";
+import { ProtectedRoutes } from "../helpers/function";
 
 const MainRoutes = () => {
   const PUBLIC = [
     {
-      link: "/admin",
-      element: <Admin />,
-      id: 1,
-    },
-    {
       link: "/",
       element: <MainPage />,
       id: 2,
-    },
-    {
-      link: "/edit/:id",
-      element: <EditProduct />,
-      id: 3,
     },
     {
       link: "/login",
@@ -45,12 +37,37 @@ const MainRoutes = () => {
       element: <BasketList />,
       id: 7,
     },
+    {
+      link: "/cart",
+      element: <BasketCart />,
+      id: 8,
+    },
+  ];
+
+  const PRIVAT = [
+    {
+      link: "/admin",
+      element: <Admin />,
+      id: 1,
+    },
+
+    {
+      link: "/edit/:id",
+      element: <EditProduct />,
+      id: 3,
+    },
   ];
   return (
     <Routes>
       {PUBLIC.map((el) => (
         <Route path={el.link} element={el.element} key={el.id} />
       ))}
+      <Route title = {<ProtectedRoutes/>}>
+
+      {PRIVAT.map((el) => (
+        <Route path={el.link} element={el.element} key={el.id} />
+        ))}
+        </Route>
     </Routes>
   );
 };

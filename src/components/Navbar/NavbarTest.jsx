@@ -19,6 +19,7 @@ import { useAuthContext } from "../../context/AuthContext";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
+import { ADMIN } from "../../helpers/const";
 const NavbarTest = () => {
   const { user, logOut } = useAuthContext();
   const { searchValue, basket, readBasket } = useProduct();
@@ -29,6 +30,10 @@ const NavbarTest = () => {
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
+  function navigateToB() {
+    navigate("/cart");
+  }
 
   const handleClose = () => {
     setAnchorEl(null);
@@ -58,12 +63,19 @@ const NavbarTest = () => {
           />
           <Box className="navbar_test_icons">
             <Box className="navbar_test_nav">
-              <IconButton
-                onClick={() => navigate("/admin")}
-                sx={{ p: 0, m: 0 }}
-              >
-                <AdminPanelSettingsIcon />
-              </IconButton>
+              {ADMIN.map((el) =>
+                user && el.email === user.email ? (
+                  <IconButton
+                    onClick={() => navigate("/admin")}
+                    sx={{ p: 0, m: 0 }}
+                  >
+                    <AdminPanelSettingsIcon />
+                  </IconButton>
+                ) : (
+                  ""
+                )
+              )}
+
               <Typography>New & Featured</Typography>
               <Typography onClick={() => navigate("/")}>Men</Typography>
               <Typography>Women</Typography>
@@ -81,7 +93,7 @@ const NavbarTest = () => {
               <IconButton>
                 <FavoriteBorderIcon sx={{ fontSize: "25px" }} />
               </IconButton>
-              <IconButton onClick={() => navigate("/basket")}>
+              <IconButton onMouseDown={navigateToB}>
                 <StyledBadge badgeContent={basket.length} color="secondary">
                   <WorkOutlineIcon sx={{ fontSize: "25px" }} />
                 </StyledBadge>

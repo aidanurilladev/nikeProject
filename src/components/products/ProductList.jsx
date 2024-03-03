@@ -15,9 +15,10 @@ const ProductList = () => {
     <Box
       sx={{
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "start",
         flexWrap: "wrap",
         gap: "15px",
+        padding: "0 20px",
       }}
     >
       {data.length > 0 ? (

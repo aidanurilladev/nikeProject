@@ -134,6 +134,25 @@ const ProductContext = ({ children }) => {
       payload: data,
     });
   }
+  
+  async function removeBasket(id){
+    await axios.delete(`${API_BASKET}/${id}`)
+readBasket()
+  }
+  async function basketAction(id) {
+    const res = state.basket.find((el) => el.id === id);
+    return res;
+  }
+
+  function checkBasketProduct(id) {
+    if (state.basket) {
+      const result = state.basket.some((el) => el.id === id);
+      return !result;
+    }
+  }
+
+  
+
 
   //! BASKET
 
@@ -154,6 +173,10 @@ const ProductContext = ({ children }) => {
     addBasket,
     readBasket,
     basket: state.basket,
+    checkBasketProduct,
+    basketAction,
+    removeBasket
+   
   };
   return (
     <productContext.Provider value={values}>{children}</productContext.Provider>
