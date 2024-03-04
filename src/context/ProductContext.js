@@ -135,10 +135,7 @@ const ProductContext = ({ children }) => {
     });
   }
   
-  async function removeBasket(id){
-    await axios.delete(`${API_BASKET}/${id}`)
-readBasket()
-  }
+ 
   async function basketAction(id) {
     const res = state.basket.find((el) => el.id === id);
     return res;
@@ -175,7 +172,6 @@ readBasket()
     basket: state.basket,
     checkBasketProduct,
     basketAction,
-    removeBasket
    
   };
   return (

@@ -1,9 +1,11 @@
 import { Box, Button, MenuItem, Select, TextField, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { useCardContext } from "../../context/CardContext";
+import { useProduct } from "../../context/ProductContext";
 
 const BasketCart = () => {
   const { readProductFromCard, card ,changeProductCount} = useCardContext();
+  const {removeBasket} = useProduct()
   useEffect(() => {
     readProductFromCard();
   }, []);
