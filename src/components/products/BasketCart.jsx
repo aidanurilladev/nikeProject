@@ -4,7 +4,7 @@ import { useCardContext } from "../../context/CardContext";
 import { useProduct } from "../../context/ProductContext";
 
 const BasketCart = () => {
-  const { readProductFromCard, card ,changeProductCount} = useCardContext();
+  const { readProductFromCard, card ,changeProductCount,deleteProductInCard,sendProductFromTelegram} = useCardContext();
   const {removeBasket} = useProduct()
   useEffect(() => {
     readProductFromCard();
@@ -101,6 +101,7 @@ const BasketCart = () => {
                 >
                   <img width={250} src={el.item.image} alt="" />
                   <Button
+                  onClick={()=>deleteProductInCard(el.item.id)}
                     sx={{
                       width: "250px",
                     }}
@@ -138,6 +139,7 @@ const BasketCart = () => {
               >
                 <Typography variant="h6">TotalPrice : {card.totalPrice}</Typography>
                 <Button
+                onClick={()=>sendProductFromTelegram(card.products)}
                   sx={{
                     fontWeight: "bold",
                     "&:hover": { background: "#000" },

@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { ACTION_CARD } from "../helpers/const";
 import { calcSubPrice, calcTotalPrice } from "../helpers/function";
+import axios from "axios";
 
 const cardContext = createContext();
 export const useCardContext = () => useContext(cardContext);
@@ -59,6 +60,13 @@ const CardContext = ({ children }) => {
     });
   }
 
+  function deleteProductInCard(id) {
+    let card = JSON.parse(localStorage.getItem("card"));
+    card.products = card.products.filter((el) => el.item.id !== id);
+    card.totalPrice = calcTotalPrice(card.products);
+    localStorage.setItem("card", JSON.stringify(card));
+    readProductFromCard();
+  }
   function changeProductCount(count, id) {
     if (count < 1) {
       alert("error");
@@ -74,7 +82,29 @@ const CardContext = ({ children }) => {
     });
     card.totalPrice = calcTotalPrice(card.products);
     localStorage.setItem("card", JSON.stringify(card));
-    readProductFromCard()
+    readProductFromCard();
+  }
+  const TOKEN = `6625212528:AAFY_aIoFfJRr3-S96XDtjjNhcsWBeatTdk`;
+  const MY_ID = `-1002052462333`;
+  const URL_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+  async function sendProductFromTelegram(product) {
+    let values = `Заказ:\n`;
+    product.map((el) => {
+
+      values += `${el.item.image}\n`;
+      values += `Название \n`
+      values += `${el.item.name}\n`;
+      values += `Цена \n`
+
+      values += `${el.item.price}\n`;
+      values += `Кол-во ${el.count}\n`;
+    });
+    const newObject = {
+      chat_id: MY_ID,
+      parse_model: "html",
+      text: values,
+    };
+    await axios.post(URL_API, newObject);
   }
 
   const values = {
@@ -83,6 +113,8 @@ const CardContext = ({ children }) => {
     readProductFromCard,
     card: state.card,
     changeProductCount,
+    deleteProductInCard,
+    sendProductFromTelegram,
   };
   return <cardContext.Provider value={values}>{children}</cardContext.Provider>;
 };
